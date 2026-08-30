@@ -1,0 +1,40 @@
+`timescale 1ns / 1ps
+
+module mux_4to1_tb;
+
+reg [3:0] i;
+reg [1:0] s;
+wire y;
+
+mux_4to1 uut (
+    .i(i),
+    .s(s),
+    .y(y)
+);
+
+initial begin
+
+    // Test input combination
+    i = 4'b1010;
+
+    // Select i[0]
+    s = 2'b00;
+    #10;
+
+    // Select i[1]
+    s = 2'b01;
+    #10;
+
+    // Select i[2]
+    s = 2'b10;
+    #10;
+
+    // Select i[3]
+    s = 2'b11;
+    #10;
+
+    $finish;
+
+end
+
+endmodule
